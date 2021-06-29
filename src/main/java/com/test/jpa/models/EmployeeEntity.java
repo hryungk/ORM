@@ -1,11 +1,14 @@
 package com.test.jpa.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="employees")
+@NamedQuery(name = "findAll", query = "SELECT e from EmployeeEntity e")
+@NamedQuery(name = "find_Employee_By_ID", query = "SELECT e FROM EmployeeEntity e WHERE e.employeeNumber = :givenID")
 public class EmployeeEntity {
 
 	@Id
